@@ -29,6 +29,8 @@ dependencies:
   equatable: ^1.0.1
   flutter_bloc: ^3.0.0
   flutter_dotenv: ^2.1.0
+  logger: ^0.8.2
+  logger_flutter: ^0.7.1
   supercharged: ^1.1.0
   webview_flutter: ^0.3.18+1
 

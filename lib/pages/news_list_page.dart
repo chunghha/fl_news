@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'package:fl_news/bloc/bloc.dart';
+import 'package:fl_news/logger/logger.dart';
 import 'package:fl_news/models/article.dart';
 import 'package:fl_news/pages/news_article_page.dart';
 import 'package:fl_news/widgets/news_list_widget.dart';
@@ -42,7 +43,7 @@ class _NewsListPageState extends State<NewsListPage> {
             controller: _controller,
             onSubmitted: (value) {
               if (value.isNotEmpty) {
-                print('Enter pressed');
+                Log.d('Enter pressed');
                 BlocProvider.of<NewsListBloc>(context).add(
                   FetchNewsList(search: value),
                 );
@@ -57,7 +58,7 @@ class _NewsListPageState extends State<NewsListPage> {
               suffixIcon: IconButton(
                 icon: Icon(Icons.clear),
                 onPressed: () {
-                  print('SuffixIcon pressed');
+                  Log.d('SuffixIcon pressed');
                   _controller.text = '';
                 },
               ),
