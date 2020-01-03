@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'package:fl_news/bloc/bloc.dart';
@@ -17,6 +18,12 @@ class NewsListPage extends StatefulWidget {
 
 class _NewsListPageState extends State<NewsListPage> {
   final _controller = TextEditingController();
+
+  final _spinkit = SpinKitWave(
+    color: '#bf616a'.toColor(),
+    size: 50.0,
+  );
+
   @override
   void initState() {
     super.initState();
@@ -69,7 +76,7 @@ class _NewsListPageState extends State<NewsListPage> {
               if (state is NewsListLoading) {
                 return Expanded(
                   child: Align(
-                    child: CircularProgressIndicator(),
+                    child: _spinkit,
                   ),
                 );
               } else if (state is NewsListLoaded) {
