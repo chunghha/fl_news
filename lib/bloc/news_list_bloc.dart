@@ -25,8 +25,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
         List<Article> articles;
 
         if (event.search != null) {
-          articles = await repository.fetchNewsByKeyword(
-              keyword: event.search);
+          articles = await repository.fetchNewsByKeyword(keyword: event.search);
         } else {
           articles = await repository.fetchTopHeadLines();
         }

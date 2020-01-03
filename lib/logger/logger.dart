@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 
 class Log {
-  // Disable colors for now till the issue resolved. 
+  // Disable colors for now till the issue resolved.
   static final logger = Logger(printer: PrettyPrinter(colors: false));
 
   static void d(message) {
