@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 import 'package:supercharged/supercharged.dart';
 
@@ -40,7 +41,11 @@ class NewsListWidget extends StatelessWidget {
                     fontSize: 16.0),
               ),
               subtitle: Text(
-                article?.source?.name ?? '',
+                (article?.source?.name ?? '') +
+                    '  -  ' +
+                    (article?.publishedAt != null
+                        ? _getTimeago(article.publishedAt)
+                        : ''),
                 style: GoogleFonts.girassol(
                     textStyle:
                         TextStyle(color: '#434c5e'.toColor(), fontSize: 16.0)),
@@ -48,5 +53,9 @@ class NewsListWidget extends StatelessWidget {
             ));
       },
     );
+  }
+
+  _getTimeago(DateTime publishedAt) {
+    return timeago.format(publishedAt);
   }
 }
