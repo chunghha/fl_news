@@ -36,7 +36,7 @@ class NewsListWidget extends StatelessWidget {
               ),
               title: Text(
                 article?.title ?? '',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.googleSans(
                     textStyle: TextStyle(color: '#2e3440'.toColor()),
                     fontSize: 16.0),
               ),
@@ -46,7 +46,7 @@ class NewsListWidget extends StatelessWidget {
                     (article?.publishedAt != null
                         ? _getTimeago(article.publishedAt)
                         : ''),
-                style: GoogleFonts.girassol(
+                style: GoogleFonts.poppins(
                     textStyle:
                         TextStyle(color: '#434c5e'.toColor(), fontSize: 16.0)),
               ),
