@@ -36,7 +36,7 @@ class NewsListWidget extends StatelessWidget {
               ),
               title: Text(
                 article?.title ?? '',
-                style: GoogleFonts.googleSans(
+                style: GoogleFonts.openSans(
                     textStyle: TextStyle(color: '#2e3440'.toColor()),
                     fontSize: 16.0),
               ),
