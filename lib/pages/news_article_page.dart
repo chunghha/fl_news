@@ -15,7 +15,7 @@ class NewsArticlePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 16.0,
         title: Text('${this.article.title}',
-            style: GoogleFonts.raleway(
+            style: GoogleFonts.montserrat(
                 fontSize: 14.0, fontWeight: FontWeight.w700)),
       ),
       body: Center(

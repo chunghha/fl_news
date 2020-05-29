@@ -38,7 +38,7 @@ class _NewsListPageState extends State<NewsListPage> {
       appBar: AppBar(
         elevation: 16.0,
         title: Text('News',
-            style: GoogleFonts.raleway(
+            style: GoogleFonts.montserrat(
                 fontSize: 18.0, fontWeight: FontWeight.w700)),
       ),
       backgroundColor: '#eceff4'.toColor(),
@@ -93,7 +93,7 @@ class _NewsListPageState extends State<NewsListPage> {
                     child: Align(
                   child: Text(
                     'No news found!',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.lato(
                         textStyle: TextStyle(color: '#d08770'.toColor())),
                   ),
                 ));
@@ -102,7 +102,7 @@ class _NewsListPageState extends State<NewsListPage> {
                   child: Align(
                     child: Text(
                       'Something went wrong!',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.lato(
                           textStyle: TextStyle(color: '#bf616a'.toColor())),
                     ),
                   ),
