@@ -10,7 +10,9 @@ import 'package:fl_news/models/article.dart';
 class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
   final NewsListRepository repository;
 
-  NewsListBloc({@required this.repository}) : assert(repository != null);
+  NewsListBloc({@required this.repository})
+      : assert(repository != null),
+        super(null);
 
   @override
   NewsListState get initialState => NewsListEmpty();
