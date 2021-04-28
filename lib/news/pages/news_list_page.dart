@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -23,6 +24,7 @@ class NewsListPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 16.0,
+        shadowColor: '#5e81ac'.toColor(),
         title: Text('News',
             style: GoogleFonts.montserrat(
                 fontSize: 18.0, fontWeight: FontWeight.w700)),
@@ -89,11 +91,22 @@ class NewsListPage extends HookWidget {
   }
 
   void _showNewsArticleDetails(BuildContext context, Article article) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => NewsArticlePage(article: article),
-      ),
+    Navigator.of(context).push(_createRoute(context, article));
+  }
+
+  Route _createRoute(BuildContext context, Article article) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          NewsArticlePage(article: article),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeThroughTransition(
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        );
+      },
+      transitionDuration: Duration(milliseconds: 2000),
+      reverseTransitionDuration: Duration(milliseconds: 800),
     );
   }
 }

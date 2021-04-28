@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  animations: ^2.0.0
   auto_size_text_field: ^1.0.0-nullsafety.1
   dio: ^4.0.0
   flutter_dotenv: ^4.0.0-nullsafety.1
