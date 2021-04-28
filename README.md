@@ -1,9 +1,18 @@
 # fl_news
 
-An example Flutter project using Bloc, Chopper and Webview. 
+~~An example Flutter project using Bloc, Chopper and Webview.~~ v1
+
+An example Flutter project using freezed, riverpod, Dio and Webview: v2 
+
 ![News](./screenshots/news.png)
 
-To run this on your local, please create **.env** file with your NEWS_API_KEY for **[newapi.org](https://newsapi.org/)**.
+To run this on your local, ~~please create **.env** file with your NEWS_API_KEY~~ (v1) for **[newapi.org](https://newsapi.org/)**.
+
+Or altenatively (v2), you can use **assets/configuration.json** like the below with **configuration.provider.dart**.
+
+`{`
+    `"news_api_key": "<your api key>"`
+`}`
 
 ## Getting Started
 

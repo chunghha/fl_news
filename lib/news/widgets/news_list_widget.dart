@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeago/timeago.dart' as timeago;
-
 import 'package:supercharged/supercharged.dart';
 
-import 'package:fl_news/models/article.dart';
+import '../models/article.dart';
 
 class NewsListWidget extends StatelessWidget {
   final List<Article> articles;
   final Function(Article article) onTapArticle;
 
-  NewsListWidget({this.articles, this.onTapArticle});
+  NewsListWidget({required this.articles, required this.onTapArticle});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: articles == null ? 0 : articles.length,
+      itemCount: articles.length,
       itemBuilder: (context, index) {
         final article = articles.elementAt(index);
         return Container(
@@ -25,26 +24,27 @@ class NewsListWidget extends StatelessWidget {
                     : '#eceff4'.toColor().withOpacity(0.5)),
             child: ListTile(
               onTap: () {
-                this.onTapArticle(article);
+                onTapArticle(article);
               },
               leading: Container(
                 height: 100,
                 width: 100,
-                child: article?.urlToImage == null
+                child: article.urlToImage == null
                     ? Placeholder()
-                    : Image.network(article?.urlToImage),
+                    : Image.network(article.urlToImage!),
               ),
               title: Text(
-                article?.title ?? '',
+                article.title ?? '',
                 style: GoogleFonts.lato(
                     textStyle: TextStyle(color: '#2e3440'.toColor()),
                     fontSize: 16.0),
               ),
               subtitle: Text(
-                (article?.source?.name ?? '') +
+                // ignore: prefer_interpolation_to_compose_strings
+                (article.source?.name ?? '') +
                     '  -  ' +
-                    (article?.publishedAt != null
-                        ? _getTimeago(article.publishedAt)
+                    (article.publishedAt != null
+                        ? _getTimeago(article.publishedAt!)
                         : ''),
                 style: GoogleFonts.lato(
                     textStyle:
