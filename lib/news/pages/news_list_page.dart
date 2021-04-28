@@ -25,6 +25,7 @@ class NewsListPage extends HookWidget {
       appBar: AppBar(
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
+        centerTitle: true,
         title: Text('News',
             style: GoogleFonts.montserrat(
                 fontSize: 18.0, fontWeight: FontWeight.w700)),
