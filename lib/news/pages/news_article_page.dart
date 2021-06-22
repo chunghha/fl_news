@@ -10,7 +10,8 @@ import '../models/article.dart';
 
 class NewsArticlePage extends StatelessWidget {
   final Article article;
-  NewsArticlePage({required this.article});
+
+  const NewsArticlePage({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class NewsArticlePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
-        title: Text('${article.urlToImage ?? ''}',
+        title: Text(article.urlToImage ?? '',
             style: GoogleFonts.montserrat(
                 fontSize: 14.0, fontWeight: FontWeight.w700)),
       ),
@@ -36,7 +37,11 @@ class NewsArticlePage extends StatelessWidget {
           errorWidget: (context, url, error) => Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.error), Text('\tNo Image Url')],
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Icon(Icons.error),
+                Text('\tNo Image Url'),
+              ],
             ),
           ),
         ),
@@ -49,7 +54,7 @@ class NewsArticlePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
-        title: Text('${article.title}',
+        title: Text(article.title!,
             style: GoogleFonts.montserrat(
                 fontSize: 14.0, fontWeight: FontWeight.w700)),
       ),

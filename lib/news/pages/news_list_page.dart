@@ -19,6 +19,8 @@ final _logger = Logger();
 class NewsListPage extends HookWidget {
   final _controller = TextEditingController();
 
+  NewsListPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

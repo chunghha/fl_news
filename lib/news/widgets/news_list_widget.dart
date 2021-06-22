@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timeago/timeago.dart' as timeago;
 import 'package:supercharged/supercharged.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 import '../models/article.dart';
 
@@ -9,7 +9,9 @@ class NewsListWidget extends StatelessWidget {
   final List<Article> articles;
   final Function(Article article) onTapArticle;
 
-  NewsListWidget({required this.articles, required this.onTapArticle});
+  const NewsListWidget(
+      {Key? key, required this.articles, required this.onTapArticle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class NewsListWidget extends StatelessWidget {
               onTap: () {
                 onTapArticle(article);
               },
-              leading: Container(
+              leading: SizedBox(
                 height: 100,
                 width: 100,
                 child: article.urlToImage == null

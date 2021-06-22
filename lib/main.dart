@@ -16,6 +16,9 @@ void main() async {
 }
 
 class NewsApp extends StatelessWidget {
+  const NewsApp({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'News',

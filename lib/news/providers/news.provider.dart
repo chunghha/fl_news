@@ -25,7 +25,7 @@ Dio _getDio(AsyncValue<Configuration> configuration) {
 }
 
 Future<dynamic> _fetchNews(ProviderReference ref) async {
-  final _cfg = await ref.watch(configurationProvider);
+  final _cfg = ref.watch(configurationProvider);
   final _keyword = ref.watch(keywordProvider).state;
   final _newsAdapter = NewsAdapter(_getDio(_cfg));
 

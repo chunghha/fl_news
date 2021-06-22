@@ -5,21 +5,23 @@ class AdapterInterceptor extends Interceptor {
   final Logger _logger = Logger();
 
   @override
-  void onRequest(RequestOptions opt, RequestInterceptorHandler handler) {
-    _logger.i('REQ[${opt.method}]::PATH: ${opt.path}\nHEADERS[${opt.headers}]');
-    if (opt.method == 'POST') {
-      _logger.d(opt.data);
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    _logger.i(
+        'REQ[${options.method}]::PATH: ${options.path}\nHEADERS[${options.headers}]');
+    if (options.method == 'POST') {
+      _logger.d(options.data);
     }
 
-    return super.onRequest(opt, handler);
+    return super.onRequest(options, handler);
   }
 
   @override
-  void onResponse(Response res, ResponseInterceptorHandler handler) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     // ignore: avoid_dynamic_calls
-    _logger.i('RES[${res.statusCode}]::PATH: ${res.requestOptions.path}\n$res');
+    _logger.i(
+        'RES[${response.statusCode}]::PATH: ${response.requestOptions.path}\n$response');
 
-    return super.onResponse(res, handler);
+    return super.onResponse(response, handler);
   }
 
   @override
