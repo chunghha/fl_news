@@ -11,7 +11,9 @@ class NewsAdapter {
   }
 
   Future<List<Article>> getNewsByKeyword(
-      String baseEndpoint, String keyword) async {
+    String baseEndpoint,
+    String keyword,
+  ) async {
     try {
       var _endpoint = '$baseEndpoint${'/everything?q=$keyword'}';
       var _res = await _dio.get(_endpoint);

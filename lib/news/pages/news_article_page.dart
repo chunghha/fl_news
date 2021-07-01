@@ -26,9 +26,13 @@ class NewsArticlePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
-        title: Text(article.urlToImage ?? '',
-            style: GoogleFonts.montserrat(
-                fontSize: 14.0, fontWeight: FontWeight.w700)),
+        title: Text(
+          article.urlToImage ?? '',
+          style: GoogleFonts.montserrat(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: Center(
         child: CachedNetworkImage(
@@ -54,9 +58,13 @@ class NewsArticlePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
-        title: Text(article.title!,
-            style: GoogleFonts.montserrat(
-                fontSize: 14.0, fontWeight: FontWeight.w700)),
+        title: Text(
+          article.title!,
+          style: GoogleFonts.montserrat(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: Center(
         child: WebView(

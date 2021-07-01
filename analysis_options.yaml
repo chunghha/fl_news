@@ -5,6 +5,8 @@ analyzer:
     - "**/*.freezed.dart"
 linter:
   rules:
-    public_member_api_docs: false
     prefer_const_constructors: false
+    prefer_relative_imports: true
     prefer_single_quotes: true
+    public_member_api_docs: false
+    require_trailing_commas: true

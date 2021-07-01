@@ -7,7 +7,8 @@ class AdapterInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _logger.i(
-        'REQ[${options.method}]::PATH: ${options.path}\nHEADERS[${options.headers}]');
+      'REQ[${options.method}]::PATH: ${options.path}\nHEADERS[${options.headers}]',
+    );
     if (options.method == 'POST') {
       _logger.d(options.data);
     }
@@ -19,7 +20,8 @@ class AdapterInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     // ignore: avoid_dynamic_calls
     _logger.i(
-        'RES[${response.statusCode}]::PATH: ${response.requestOptions.path}\n$response');
+      'RES[${response.statusCode}]::PATH: ${response.requestOptions.path}\n$response',
+    );
 
     return super.onResponse(response, handler);
   }
@@ -28,7 +30,8 @@ class AdapterInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) {
     // ignore: avoid_dynamic_calls
     _logger.e(
-        'ERROR[${err.response?.statusCode}]::PATH: ${err.requestOptions.path}');
+      'ERROR[${err.response?.statusCode}]::PATH: ${err.requestOptions.path}',
+    );
 
     return super.onError(err, handler);
   }

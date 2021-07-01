@@ -28,9 +28,13 @@ class NewsListPage extends HookWidget {
         elevation: 16.0,
         shadowColor: '#5e81ac'.toColor(),
         centerTitle: true,
-        title: Text('News',
-            style: GoogleFonts.montserrat(
-                fontSize: 18.0, fontWeight: FontWeight.w700)),
+        title: Text(
+          'News',
+          style: GoogleFonts.montserrat(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       backgroundColor: '#eceff4'.toColor(),
       body: Column(
@@ -76,14 +80,15 @@ class NewsListPage extends HookWidget {
 
     return _news.when(
       data: (data) => Expanded(
-          child: data.length == 0
-              ? _showTextWidgeet('No news found!')
-              : NewsListWidget(
-                  articles: data,
-                  onTapArticle: (article) {
-                    _showNewsArticleDetails(context, article);
-                  },
-                )),
+        child: data.length == 0
+            ? _showTextWidgeet('No news found!')
+            : NewsListWidget(
+                articles: data,
+                onTapArticle: (article) {
+                  _showNewsArticleDetails(context, article);
+                },
+              ),
+      ),
       loading: () => Expanded(child: spinkit),
       error: (dynamic err, stack) => Expanded(child: _showTextWidgeet(err)),
     );
