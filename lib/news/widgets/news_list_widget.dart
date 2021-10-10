@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:supercharged/supercharged.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+import '../../theme.dart';
 import '../models/article.dart';
 
 class NewsListWidget extends StatelessWidget {
@@ -24,8 +23,8 @@ class NewsListWidget extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
             color: index % 2 == 0
-                ? '#d8dee9'.toColor().withOpacity(0.5)
-                : '#eceff4'.toColor().withOpacity(0.5),
+                ? boxDecoColorDarker.withOpacity(0.5)
+                : boxDecoColorLighter.withOpacity(0.5),
           ),
           child: ListTile(
             onTap: () {
@@ -40,10 +39,7 @@ class NewsListWidget extends StatelessWidget {
             ),
             title: Text(
               article.title ?? '',
-              style: GoogleFonts.lato(
-                textStyle: TextStyle(color: '#2e3440'.toColor()),
-                fontSize: 16.0,
-              ),
+              style: titleTextstyle,
             ),
             subtitle: Text(
               // ignore: prefer_interpolation_to_compose_strings
@@ -52,12 +48,7 @@ class NewsListWidget extends StatelessWidget {
                   (article.publishedAt != null
                       ? _getTimeago(article.publishedAt!)
                       : ''),
-              style: GoogleFonts.lato(
-                textStyle: TextStyle(
-                  color: '#434c5e'.toColor(),
-                  fontSize: 16.0,
-                ),
-              ),
+              style: subtitleTextStyle,
             ),
           ),
         );

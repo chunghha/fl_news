@@ -1,7 +1,8 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:supercharged/supercharged.dart';
+
+import '../../theme.dart';
 
 final spinkit = SpinKitWave(
-  color: '#bf616a'.toColor(),
+  color: spinnerColor,
   size: 50.0,
 );

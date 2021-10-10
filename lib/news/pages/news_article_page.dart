@@ -2,10 +2,9 @@ import 'dart:io' show Platform;
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:supercharged/supercharged.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../theme.dart';
 import '../models/article.dart';
 
 class NewsArticlePage extends StatelessWidget {
@@ -24,14 +23,11 @@ class NewsArticlePage extends StatelessWidget {
   Widget _showPicture() {
     return Scaffold(
       appBar: AppBar(
-        elevation: 16.0,
-        shadowColor: '#5e81ac'.toColor(),
+        elevation: defaultElevation,
+        shadowColor: shadowColor,
         title: Text(
           article.urlToImage ?? '',
-          style: GoogleFonts.montserrat(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w700,
-          ),
+          style: headerTextStyle,
         ),
       ),
       body: Center(
@@ -56,14 +52,11 @@ class NewsArticlePage extends StatelessWidget {
   Widget _showWebview() {
     return Scaffold(
       appBar: AppBar(
-        elevation: 16.0,
-        shadowColor: '#5e81ac'.toColor(),
+        elevation: defaultElevation,
+        shadowColor: shadowColor,
         title: Text(
           article.title!,
-          style: GoogleFonts.montserrat(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w700,
-          ),
+          style: headerTextStyle,
         ),
       ),
       body: Center(

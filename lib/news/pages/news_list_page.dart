@@ -1,12 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:supercharged/supercharged.dart';
 
+import '../../theme.dart';
 import '../models/article.dart';
 import '../providers/keyword.provider.dart';
 import '../providers/news.provider.dart';
@@ -16,27 +14,24 @@ import 'news_article_page.dart';
 
 final _logger = Logger();
 
-class NewsListPage extends HookWidget {
+class NewsListPage extends HookConsumerWidget {
   final _controller = TextEditingController();
 
   NewsListPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 16.0,
-        shadowColor: '#5e81ac'.toColor(),
+        elevation: defaultElevation,
+        shadowColor: shadowColor,
         centerTitle: true,
         title: Text(
           'News',
-          style: GoogleFonts.montserrat(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w700,
-          ),
+          style: bigHeaderTextStyle,
         ),
       ),
-      backgroundColor: '#eceff4'.toColor(),
+      backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +45,7 @@ class NewsListPage extends HookWidget {
               if (value.isNotEmpty) {
                 _logger.d('Enter pressed for $value');
                 _controller.text = value;
-                context.read(keywordProvider).state = value;
+                ref.read(keywordProvider).state = value;
               }
             },
             decoration: InputDecoration(
@@ -64,19 +59,19 @@ class NewsListPage extends HookWidget {
                 onPressed: () {
                   _logger.d('SuffixIcon pressed');
                   _controller.text = '';
-                  context.read(keywordProvider).state = '';
+                  ref.read(keywordProvider).state = '';
                 },
               ),
             ),
           ),
-          _getNewsList(context),
+          _getNewsList(context, ref),
         ],
       ),
     );
   }
 
-  Widget _getNewsList(BuildContext context) {
-    var _news = useProvider(newsProvider);
+  Widget _getNewsList(BuildContext context, WidgetRef ref) {
+    var _news = ref.watch(newsProvider);
 
     return _news.when(
       data: (data) => Expanded(
@@ -89,8 +84,8 @@ class NewsListPage extends HookWidget {
                 },
               ),
       ),
-      loading: () => Expanded(child: spinkit),
-      error: (dynamic err, stack) => Expanded(child: _showTextWidgeet(err)),
+      loading: (_) => Expanded(child: spinkit),
+      error: (dynamic err, stack, _) => Expanded(child: _showTextWidgeet(err)),
     );
   }
 
