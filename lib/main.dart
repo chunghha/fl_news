@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'news/pages/news_list_page.dart';
+import 'theme.dart';
 
 void main() async {
   LicenseRegistry.addLicense(() async* {
@@ -22,7 +23,7 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       title: 'News',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Color(0xFF2e3440)),
+      theme: ThemeData(primaryColor: primaryColor),
       home: NewsListPage(),
     );
   }

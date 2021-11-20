@@ -8,6 +8,7 @@ const double defaultElevation = 16;
 final backgroundColor = Color(0xFFeceff4);
 final boxDecoColorDarker = Color(0xFFd8dee9);
 final boxDecoColorLighter = Color(0xFFeceff4);
+final primaryColor = Color(0xFF2e3440);
 final shadowColor = Color(0xFF5e81ac);
 final spinnerColor = Color(0xFFbf616a);
 final subtitleColor = Color(0xFF434c5e);

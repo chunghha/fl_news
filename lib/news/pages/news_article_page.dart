@@ -24,6 +24,7 @@ class NewsArticlePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: defaultElevation,
+        backgroundColor: primaryColor,
         shadowColor: shadowColor,
         title: Text(
           article.urlToImage ?? '',
@@ -53,6 +54,7 @@ class NewsArticlePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: defaultElevation,
+        backgroundColor: primaryColor,
         shadowColor: shadowColor,
         title: Text(
           article.title!,

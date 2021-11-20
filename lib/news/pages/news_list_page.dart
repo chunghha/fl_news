@@ -24,6 +24,7 @@ class NewsListPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: defaultElevation,
+        backgroundColor: primaryColor,
         shadowColor: shadowColor,
         centerTitle: true,
         title: Text(
