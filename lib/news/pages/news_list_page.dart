@@ -45,7 +45,7 @@ class NewsListPage extends HookConsumerWidget {
               if (value.isNotEmpty) {
                 _logger.d('Enter pressed for $value');
                 _controller.text = value;
-                ref.read(keywordProvider).state = value;
+                ref.read(keywordProvider.notifier).state = value;
               }
             },
             decoration: InputDecoration(
@@ -59,7 +59,7 @@ class NewsListPage extends HookConsumerWidget {
                 onPressed: () {
                   _logger.d('SuffixIcon pressed');
                   _controller.text = '';
-                  ref.read(keywordProvider).state = '';
+                  ref.read(keywordProvider.notifier).state = '';
                 },
               ),
             ),
@@ -84,8 +84,8 @@ class NewsListPage extends HookConsumerWidget {
                 },
               ),
       ),
-      loading: (_) => Expanded(child: spinkit),
-      error: (dynamic err, stack, _) => Expanded(child: _showTextWidgeet(err)),
+      loading: () => Expanded(child: spinkit),
+      error: (_err, _stack) => Expanded(child: _showTextWidgeet(_err)),
     );
   }
 

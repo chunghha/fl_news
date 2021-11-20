@@ -12,7 +12,7 @@ import 'keyword.provider.dart';
 final _logger = Logger();
 
 Dio _getDio(AsyncValue<Configuration> configuration) {
-  final _apiKey = configuration.value.newsApiKey;
+  final _apiKey = configuration.value!.newsApiKey;
   if (_apiKey.isNotEmpty) {
     _logger.i(_apiKey);
   }
@@ -24,9 +24,9 @@ Dio _getDio(AsyncValue<Configuration> configuration) {
   return _dio;
 }
 
-Future<dynamic> _fetchNews(ProviderRefBase ref) async {
+Future<dynamic> _fetchNews(FutureProviderRef ref) async {
   final _cfg = ref.watch(configurationProvider);
-  final _keyword = ref.watch(keywordProvider).state;
+  final _keyword = ref.watch(keywordProvider);
   final _newsAdapter = NewsAdapter(_getDio(_cfg));
 
   if (_keyword != '') {
