@@ -5,14 +5,14 @@ import '../../theme.dart';
 import '../models/article.dart';
 
 class NewsListWidget extends StatelessWidget {
-  final List<Article> articles;
-  final Function(Article article) onTapArticle;
-
   const NewsListWidget({
     Key? key,
     required this.articles,
     required this.onTapArticle,
   }) : super(key: key);
+
+  final List<Article> articles;
+  final Function(Article article) onTapArticle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class NewsListWidget extends StatelessWidget {
       itemCount: articles.length,
       itemBuilder: (context, index) {
         final article = articles.elementAt(index);
-        return Container(
+        return DecoratedBox(
           decoration: BoxDecoration(
-            color: index % 2 == 0
+            color: index.isEven
                 ? boxDecoColorDarker.withOpacity(0.5)
                 : boxDecoColorLighter.withOpacity(0.5),
           ),
@@ -34,7 +34,7 @@ class NewsListWidget extends StatelessWidget {
               height: 100,
               width: 100,
               child: article.urlToImage == null
-                  ? Placeholder()
+                  ? const Placeholder()
                   : Image.network(article.urlToImage!),
             ),
             title: Text(
@@ -56,7 +56,7 @@ class NewsListWidget extends StatelessWidget {
     );
   }
 
-  _getTimeago(DateTime publishedAt) {
+  String _getTimeago(DateTime publishedAt) {
     return timeago.format(publishedAt);
   }
 }

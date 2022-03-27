@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 
 class AdapterException implements Exception {
-  late String message;
-
   AdapterException.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.cancel:
@@ -29,6 +27,8 @@ class AdapterException implements Exception {
     }
     message += ':\n  $dioError';
   }
+
+  late String message;
 
   String _handleError(int? statusCode) {
     switch (statusCode) {

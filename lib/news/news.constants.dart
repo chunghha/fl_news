@@ -1,1 +1,2 @@
-const newsBaseEndpoint = 'https://newsapi.org/v2';
+const String configNewsApiKey = 'newsApiKey';
+const String configNewsBaseUrl = 'newsBaseUrl';

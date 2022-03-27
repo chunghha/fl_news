@@ -7,6 +7,7 @@ class AdapterInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _logger.i(
+      // ignore: lines_longer_than_80_chars
       'REQ[${options.method}]::PATH: ${options.path}\nHEADERS[${options.headers}]',
     );
     if (options.method == 'POST') {
@@ -18,8 +19,9 @@ class AdapterInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    // ignore: avoid_dynamic_calls
+    // ignore: avoid_dynamic_calls,
     _logger.i(
+      // ignore: lines_longer_than_80_chars
       'RES[${response.statusCode}]::PATH: ${response.requestOptions.path}\n$response',
     );
 

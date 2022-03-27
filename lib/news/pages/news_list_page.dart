@@ -15,9 +15,9 @@ import 'news_article_page.dart';
 final _logger = Logger();
 
 class NewsListPage extends HookConsumerWidget {
-  final _controller = TextEditingController();
-
   NewsListPage({Key? key}) : super(key: key);
+
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,12 +35,10 @@ class NewsListPage extends HookConsumerWidget {
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           AutoSizeTextField(
             controller: _controller,
-            style: TextStyle(fontSize: 16),
-            maxLines: 1,
+            style: const TextStyle(fontSize: 16),
             minFontSize: 14,
             onSubmitted: (value) {
               if (value.isNotEmpty) {
@@ -51,12 +49,12 @@ class NewsListPage extends HookConsumerWidget {
             },
             decoration: InputDecoration(
               labelText: 'Enter a keyword to search news',
-              icon: Padding(
-                padding: const EdgeInsets.all(8.0),
+              icon: const Padding(
+                padding: EdgeInsets.all(8),
                 child: Icon(Icons.search),
               ),
               suffixIcon: IconButton(
-                icon: Icon(Icons.clear),
+                icon: const Icon(Icons.clear),
                 onPressed: () {
                   _logger.d('SuffixIcon pressed');
                   _controller.text = '';
@@ -72,34 +70,38 @@ class NewsListPage extends HookConsumerWidget {
   }
 
   Widget _getNewsList(BuildContext context, WidgetRef ref) {
-    var _news = ref.watch(newsProvider);
+    final newsProvider = ref.watch(newsPod);
 
-    return _news.when(
-      data: (data) => Expanded(
-        child: data.length == 0
+    Widget _newsList(List<Article>? articles) {
+      return Expanded(
+        child: articles != null && articles.isEmpty
             ? _showTextWidgeet('No news found!')
             : NewsListWidget(
-                articles: data,
+                articles: articles!,
                 onTapArticle: (article) {
                   _showNewsArticleDetails(context, article);
                 },
               ),
-      ),
-      loading: () => Expanded(child: spinkit),
-      error: (_err, _stack) => Expanded(child: _showTextWidgeet(_err)),
+      );
+    }
+
+    return newsProvider.when(
+      data: (res) => _newsList(res.articles),
+      loading: () => const Expanded(child: spinkit),
+      error: (err, _) => Expanded(child: _showTextWidgeet(err)),
     );
   }
 
   Widget _showTextWidgeet(dynamic something) {
-    return Column(children: [SizedBox(height: 10), Text('$something')]);
+    return Column(children: [const SizedBox(height: 10), Text('$something')]);
   }
 
   void _showNewsArticleDetails(BuildContext context, Article article) {
-    Navigator.of(context).push(_createRoute(context, article));
+    Navigator.of(context).push<dynamic>(_createRoute(context, article));
   }
 
   Route _createRoute(BuildContext context, Article article) {
-    return PageRouteBuilder(
+    return PageRouteBuilder<dynamic>(
       pageBuilder: (context, animation, secondaryAnimation) =>
           NewsArticlePage(article: article),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -109,8 +111,8 @@ class NewsListPage extends HookConsumerWidget {
           child: child,
         );
       },
-      transitionDuration: Duration(milliseconds: 2000),
-      reverseTransitionDuration: Duration(milliseconds: 800),
+      transitionDuration: const Duration(milliseconds: 2000),
+      reverseTransitionDuration: const Duration(milliseconds: 800),
     );
   }
 }

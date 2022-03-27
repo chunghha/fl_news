@@ -8,9 +8,9 @@ import '../../theme.dart';
 import '../models/article.dart';
 
 class NewsArticlePage extends StatelessWidget {
-  final Article article;
-
   const NewsArticlePage({Key? key, required this.article}) : super(key: key);
+
+  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +34,14 @@ class NewsArticlePage extends StatelessWidget {
       body: Center(
         child: CachedNetworkImage(
           imageUrl: article.urlToImage ?? '',
-          placeholder: (context, url) => CircularProgressIndicator(),
-          errorWidget: (context, url, error) => Center(
+          placeholder: (context, url) => const CircularProgressIndicator(),
+          errorWidget: (context, url, dynamic _) => Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Icon(Icons.error),
-                Text('\tNo Image Url'),
+                const Icon(Icons.error),
+                const Text('\tNo Image Url'),
               ],
             ),
           ),

@@ -1,40 +1,22 @@
-import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 
-import '../../shared/adapter.interceptor.dart';
-import '../../shared/configuration.provider.dart';
-import '../../shared/models/configuration.dart';
-import '../news.adapter.dart';
-import '../news.constants.dart';
+import '../models/news_response.dart';
+import '../services/news.repository.dart';
 import 'keyword.provider.dart';
 
 final _logger = Logger();
 
-Dio _getDio(AsyncValue<Configuration> configuration) {
-  final _apiKey = configuration.value!.newsApiKey;
-  if (_apiKey.isNotEmpty) {
-    _logger.i(_apiKey);
+final newsPod = FutureProvider<NewsResponse>(_fetchNews);
+
+Future<NewsResponse> _fetchNews(FutureProviderRef ref) {
+  final newsRepository = ref.read(newsRepoPod);
+  final keyword = ref.watch(keywordProvider);
+
+  if (keyword != '') {
+    _logger.i('keyword to search: $keyword');
+    return newsRepository.getNewsByKeyword(keyword);
   }
 
-  final _dio = Dio();
-  _dio.interceptors.add(AdapterInterceptor());
-  _dio.options.headers['X-Api-Key'] = _apiKey;
-
-  return _dio;
+  return newsRepository.getNews();
 }
-
-Future<dynamic> _fetchNews(FutureProviderRef ref) async {
-  final _cfg = ref.watch(configurationProvider);
-  final _keyword = ref.watch(keywordProvider);
-  final _newsAdapter = NewsAdapter(_getDio(_cfg));
-
-  if (_keyword != '') {
-    _logger.i('keyword to search: $_keyword');
-    return _newsAdapter.getNewsByKeyword(newsBaseEndpoint, _keyword);
-  }
-
-  return _newsAdapter.getHeadliness(newsBaseEndpoint);
-}
-
-final newsProvider = FutureProvider<dynamic>(_fetchNews);

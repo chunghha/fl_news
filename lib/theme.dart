@@ -5,36 +5,36 @@ import 'package:google_fonts/google_fonts.dart';
 const double defaultElevation = 16;
 
 // colors
-final backgroundColor = Color(0xFFeceff4);
-final boxDecoColorDarker = Color(0xFFd8dee9);
-final boxDecoColorLighter = Color(0xFFeceff4);
-final primaryColor = Color(0xFF2e3440);
-final shadowColor = Color(0xFF5e81ac);
-final spinnerColor = Color(0xFFbf616a);
-final subtitleColor = Color(0xFF434c5e);
-final titleColor = Color(0xFF2e3440);
+const backgroundColor = Color(0xFFeceff4);
+const boxDecoColorDarker = Color(0xFFd8dee9);
+const boxDecoColorLighter = Color(0xFFeceff4);
+const primaryColor = Color(0xFF2e3440);
+const shadowColor = Color(0xFF5e81ac);
+const spinnerColor = Color(0xFFbf616a);
+const subtitleColor = Color(0xFF434c5e);
+const titleColor = Color(0xFF2e3440);
 
 // text styles
 final bigHeaderTextStyle = GoogleFonts.montserrat(
-  fontSize: 18.0,
+  fontSize: 18,
   fontWeight: FontWeight.w700,
 );
 
 final headerTextStyle = GoogleFonts.montserrat(
-  fontSize: 14.0,
+  fontSize: 14,
   fontWeight: FontWeight.w700,
 );
 
 final subtitleTextStyle = GoogleFonts.lato(
-  textStyle: TextStyle(
+  textStyle: const TextStyle(
     color: subtitleColor,
-    fontSize: 16.0,
+    fontSize: 16,
   ),
 );
 
 final titleTextstyle = GoogleFonts.lato(
-  textStyle: TextStyle(
+  textStyle: const TextStyle(
     color: titleColor,
-    fontSize: 16.0,
+    fontSize: 16,
   ),
 );

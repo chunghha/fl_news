@@ -1,4 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'configuration.dart';
@@ -26,7 +28,7 @@ class _$ConfigurationTearOff {
     );
   }
 
-  Configuration fromJson(Map<String, Object> json) {
+  Configuration fromJson(Map<String, Object?> json) {
     return Configuration.fromJson(json);
   }
 }
@@ -128,15 +130,15 @@ class _$_Configuration implements _Configuration {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Configuration &&
-            (identical(other.newsApiKey, newsApiKey) ||
-                const DeepCollectionEquality()
-                    .equals(other.newsApiKey, newsApiKey)));
+        (other.runtimeType == runtimeType &&
+            other is _Configuration &&
+            const DeepCollectionEquality()
+                .equals(other.newsApiKey, newsApiKey));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(newsApiKey);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(newsApiKey));
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +158,7 @@ abstract class _Configuration implements Configuration {
       _$_Configuration.fromJson;
 
   @override
-  String get newsApiKey => throw _privateConstructorUsedError;
+  String get newsApiKey;
   @override
   @JsonKey(ignore: true)
   _$ConfigurationCopyWith<_Configuration> get copyWith =>
