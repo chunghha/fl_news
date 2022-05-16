@@ -8,7 +8,7 @@ import '../../theme.dart';
 import '../models/article.dart';
 
 class NewsArticlePage extends StatelessWidget {
-  const NewsArticlePage({Key? key, required this.article}) : super(key: key);
+  const NewsArticlePage({super.key, required this.article});
 
   final Article article;
 

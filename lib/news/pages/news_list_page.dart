@@ -15,7 +15,7 @@ import 'news_article_page.dart';
 final _logger = Logger();
 
 class NewsListPage extends HookConsumerWidget {
-  NewsListPage({Key? key}) : super(key: key);
+  NewsListPage({super.key});
 
   final _controller = TextEditingController();
 

@@ -6,10 +6,10 @@ import '../models/article.dart';
 
 class NewsListWidget extends StatelessWidget {
   const NewsListWidget({
-    Key? key,
+    super.key,
     required this.articles,
     required this.onTapArticle,
-  }) : super(key: key);
+  });
 
   final List<Article> articles;
   final Function(Article article) onTapArticle;

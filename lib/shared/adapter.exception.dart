@@ -22,7 +22,7 @@ class AdapterException implements Exception {
         message = 'Send timeout in connection with API';
         break;
       default:
-        message = 'Dio Unknown exception occured';
+        message = 'Dio Unknown exception occurred';
         break;
     }
     message += ':\n  $dioError';

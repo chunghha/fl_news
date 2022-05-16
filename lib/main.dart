@@ -20,7 +20,7 @@ void main() async {
 }
 
 class NewsApp extends StatelessWidget {
-  const NewsApp({Key? key}) : super(key: key);
+  const NewsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
