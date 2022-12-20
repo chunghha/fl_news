@@ -17,31 +17,31 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  animations: ^2.0.2
-  auto_size_text_field: ^2.0.0
-  cached_network_image: ^3.2.1
+  animations: ^2.0.7
+  auto_size_text_field: ^2.1.0
+  cached_network_image: ^3.2.3
   dio: ^4.0.6
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
-  flutter_hooks: ^0.18.4
+  flutter_hooks: ^0.18.5+1
   flutter_spinkit: ^5.1.0
-  freezed_annotation: ^2.0.3
-  google_fonts: ^2.3.2
-  hooks_riverpod: ^2.0.0-dev.7
+  freezed_annotation: ^2.2.0
+  google_fonts: ^3.0.1
+  hooks_riverpod: ^2.1.1
   logger: ^1.1.0
-  styled_widget: ^0.4.0+3
-  timeago: ^3.2.2
-  webview_flutter: ^3.0.4
+  styled_widget: ^0.4.1
+  timeago: ^3.3.0
+  webview_flutter: ^4.0.0
 
 dev_dependencies:
-  all_lint_rules_community: ^0.0.9
-  build_runner: ^2.1.11
-  flutter_launcher_icons: ^0.9.1
+  all_lint_rules_community: ^0.0.20
+  build_runner: ^2.3.3
+  flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
-  freezed: ^2.0.3+1
-  json_serializable: ^6.2.0
+  freezed: ^2.3.2
+  json_serializable: ^6.5.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

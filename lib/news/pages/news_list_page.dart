@@ -72,21 +72,21 @@ class NewsListPage extends HookConsumerWidget {
   Widget _getNewsList(BuildContext context, WidgetRef ref) {
     final newsProvider = ref.watch(newsPod);
 
-    Widget _newsList(List<Article>? articles) {
+    Widget newsList(List<Article>? articles) {
       return Expanded(
         child: articles != null && articles.isEmpty
             ? _showTextWidgeet('No news found!')
             : NewsListWidget(
                 articles: articles!,
-                onTapArticle: (article) {
-                  _showNewsArticleDetails(context, article);
+                onTapArticle: (article) async {
+                  await _showNewsArticleDetails(context, article);
                 },
               ),
       );
     }
 
     return newsProvider.when(
-      data: (res) => _newsList(res.articles),
+      data: (res) => newsList(res.articles),
       loading: () => const Expanded(child: spinkit),
       error: (err, _) => Expanded(child: _showTextWidgeet(err)),
     );
@@ -96,8 +96,11 @@ class NewsListPage extends HookConsumerWidget {
     return Column(children: [const SizedBox(height: 10), Text('$something')]);
   }
 
-  void _showNewsArticleDetails(BuildContext context, Article article) {
-    Navigator.of(context).push<dynamic>(_createRoute(context, article));
+  Future<void> _showNewsArticleDetails(
+    BuildContext context,
+    Article article,
+  ) async {
+    await Navigator.of(context).push<dynamic>(_createRoute(context, article));
   }
 
   Route _createRoute(BuildContext context, Article article) {
