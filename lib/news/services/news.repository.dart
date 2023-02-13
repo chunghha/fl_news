@@ -1,4 +1,6 @@
-import 'package:diox/diox.dart';
+// ignore_for_file: avoid_as
+
+import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

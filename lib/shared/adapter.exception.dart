@@ -1,4 +1,4 @@
-import 'package:diox/diox.dart';
+import 'package:dio/dio.dart';
 
 class AdapterException implements Exception {
   AdapterException.fromDioError(DioError dioError) {
@@ -21,6 +21,7 @@ class AdapterException implements Exception {
       case DioErrorType.sendTimeout:
         message = 'Send timeout in connection with API';
         break;
+      case DioErrorType.unknown:
       default:
         message = 'Dio Unknown exception occurred';
         break;

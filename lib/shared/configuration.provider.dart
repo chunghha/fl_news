@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_as
+
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
