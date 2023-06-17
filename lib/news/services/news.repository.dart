@@ -30,8 +30,8 @@ class NewsRepository {
           as Map<String, dynamic>;
 
       return NewsResponse.fromJson(res);
-    } on DioError catch (dioError) {
-      throw AdapterException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw AdapterException.fromDioError(dioException);
     }
   }
 
@@ -43,8 +43,8 @@ class NewsRepository {
           (await newsAdapter.getHeadliness()).data as Map<String, dynamic>;
 
       return NewsResponse.fromJson(res);
-    } on DioError catch (dioError) {
-      throw AdapterException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw AdapterException.fromDioError(dioException);
     }
   }
 }

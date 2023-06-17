@@ -40,13 +40,13 @@ class NewsArticlePage extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: article.urlToImage ?? '',
           placeholder: (context, url) => const CircularProgressIndicator(),
-          errorWidget: (context, url, dynamic _) => Center(
+          errorWidget: (context, url, dynamic _) => const Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                const Icon(Icons.error),
-                const Text('\tNo Image Url'),
+                Icon(Icons.error),
+                Text('\tNo Image Url'),
               ],
             ),
           ),

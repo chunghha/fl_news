@@ -15,24 +15,24 @@ const subtitleColor = Color(0xFF434c5e);
 const titleColor = Color(0xFF2e3440);
 
 // text styles
-final bigHeaderTextStyle = GoogleFonts.montserrat(
+final bigHeaderTextStyle = GoogleFonts.tienne(
   fontSize: 18,
   fontWeight: FontWeight.w700,
 );
 
-final headerTextStyle = GoogleFonts.montserrat(
+final headerTextStyle = GoogleFonts.tienne(
   fontSize: 14,
   fontWeight: FontWeight.w700,
 );
 
-final subtitleTextStyle = GoogleFonts.lato(
+final subtitleTextStyle = GoogleFonts.nunitoSans(
   textStyle: const TextStyle(
     color: subtitleColor,
     fontSize: 16,
   ),
 );
 
-final titleTextstyle = GoogleFonts.lato(
+final titleTextstyle = GoogleFonts.nunitoSans(
   textStyle: const TextStyle(
     color: titleColor,
     fontSize: 16,
