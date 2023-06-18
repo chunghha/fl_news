@@ -25,7 +25,7 @@ final headerTextStyle = GoogleFonts.tienne(
   fontWeight: FontWeight.w700,
 );
 
-final subtitleTextStyle = GoogleFonts.tienne(
+final sourceTextStyle = GoogleFonts.tienne(
   textStyle: const TextStyle(
     color: subtitleColor,
     fontSize: 14,
@@ -33,7 +33,7 @@ final subtitleTextStyle = GoogleFonts.tienne(
   ),
 );
 
-final titleTextstyle = GoogleFonts.nunitoSans(
+final titleTextStyle = GoogleFonts.nunitoSans(
   textStyle: const TextStyle(
     color: titleColor,
     fontSize: 16,

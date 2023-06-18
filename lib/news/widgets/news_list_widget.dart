@@ -39,11 +39,11 @@ class NewsListWidget extends StatelessWidget {
             ),
             title: Text(
               article.toTitle(),
-              style: titleTextstyle,
+              style: titleTextStyle,
             ),
             subtitle: Text(
               article.toSource(),
-              style: subtitleTextStyle,
+              style: sourceTextStyle,
             ),
           ),
         );
