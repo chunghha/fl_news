@@ -25,10 +25,11 @@ final headerTextStyle = GoogleFonts.tienne(
   fontWeight: FontWeight.w700,
 );
 
-final subtitleTextStyle = GoogleFonts.nunitoSans(
+final subtitleTextStyle = GoogleFonts.tienne(
   textStyle: const TextStyle(
     color: subtitleColor,
-    fontSize: 16,
+    fontSize: 14,
+    fontStyle: FontStyle.italic,
   ),
 );
 

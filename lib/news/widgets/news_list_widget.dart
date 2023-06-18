@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 import '../../theme.dart';
+import '../extensions/article.extension.dart';
 import '../models/article.dart';
 
 class NewsListWidget extends StatelessWidget {
@@ -38,25 +38,16 @@ class NewsListWidget extends StatelessWidget {
                   : Image.network(article.urlToImage!),
             ),
             title: Text(
-              article.title ?? '',
+              article.toTitle(),
               style: titleTextstyle,
             ),
             subtitle: Text(
-              // ignore: prefer_interpolation_to_compose_strings
-              (article.source?.name ?? '') +
-                  '  -  ' +
-                  (article.publishedAt != null
-                      ? _getTimeago(article.publishedAt!)
-                      : ''),
+              article.toSource(),
               style: subtitleTextStyle,
             ),
           ),
         );
       },
     );
-  }
-
-  String _getTimeago(DateTime publishedAt) {
-    return timeago.format(publishedAt);
   }
 }
